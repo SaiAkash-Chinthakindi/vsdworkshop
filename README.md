@@ -97,5 +97,3 @@ This README provides a detailed summary of the work completed from **Day 1 to Da
 - **Linux Shell** – For running commands and managing files  
 
 ---
-
-Feel free to ask if you want this shortened, expanded, or formatted with sections, emojis, or tables!
