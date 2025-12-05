@@ -5,6 +5,8 @@
 
 GLS stands for Gate Level Simulation. It means running the testbench with the synthesized netlist as the design under test. The netlist is logically the same as the RTL, so the same testbench will work for both. The inputs and outputs in the RTL and netlist match, and GLS helps us check that the design still behaves correctly after synthesis.
 
+![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day4/images/day5_GLS_layout.png?raw=true)
+
 ### Why GLS?
 
 - To verify the logical correctness of delay after Synthesis
@@ -39,7 +41,7 @@ gtkwave tb_ternary_operator_mux.vcd
 ```
 Now, we have to perform the synthesis operation on the verilog file.
 
--- image of the ternary_operator_mux optimised
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day4/images/day5_ternary_operator_optimised.png?raw=true)
 
 To perform the GLS operation on the obtained netlist. we have to use the command :
 
@@ -50,7 +52,7 @@ use the command below to get the vcd file
 ```bash
 ./a.out
 ```
--- image of the gtk_wave_netlist of ternary operator.
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day4/images/day5_ternary_operator_gtkwave_netlist.png?raw=true)
 
 1) **bad_mux.v**
 
@@ -68,7 +70,7 @@ gtkwave tb_bad_mux.vcd
 ```
 Now, we have to perform the synthesis operation on the verilog file.
 
--- image of the bad_mux optimised
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day4/images/day5_bad_mux_gtkwave.png?raw=true)
 
 To perform the GLS operation on the obtained netlist. we have to use the command :
 
@@ -79,7 +81,7 @@ use the command below to get the vcd file
 ```bash
 ./a.out
 ```
--- image of the gtk_wave_netlist of ternary operator.
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day4/images/day5_bad_mux_gtkwave_netlist.png?raw=true).
 
 From the obtained gtkwave from RTL simulation and GLS simulation we can see that in RTL simulation the output is not following the input with respect to the select lines but in the case of GLS simulation the outputs are following the inputs with respect to the select lines. from the above graphs we can say that there is synthesis simulation mismatch.
 
@@ -100,11 +102,11 @@ To get the gtkwave for the RTL simulation
 ```bash
 gtkwave tb_blocking_caveat_net.v
 ```
--- image of the gtkwave of the code
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day4/images/day5_blocking_caveat_RTL_gtkwave.png?raw=true)
 
 After performing the synthesis operation and getting the netlist for the the verilog code the obtained GLS waveform is:
 
--- image of the GLS gtkwave of the netlist.
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day4/images/day5_blocking_caveat_GLS_gtkwave.png?raw=true).
 
 From the two graphs we can see that in the RTL simulation the d input is taking the previous value of the x because of the blocking statement but in the case of the GLS the output d is driven by the present values of the input change. so, we can say that there is a Synthesis-Simulation mismatch for Blocking Statement.
 
