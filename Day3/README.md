@@ -268,6 +268,28 @@ The optimised circuit :
 
 -- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_circuit5_optimised_circuit.png?raw=true)
 
+## Sequential optimization for unused outputs
+
+Any logic which is not having any direct connections or resulting in any relationship with the primary outputs will be optimised.
+
+For a given module we can have one or more primary outputs and if we have some logic which has no way related to the primary oputputs all those logits will be optimized.
+
+Example: if we consider the circuit **counter_opt.v**
+
+-- verilog code for the counter_opt.v 
+
+-- circuit of the counter 
+
+output waveform of the circuit produced.
+
+-- waveform of the circuit produced
+
+from the above waveform it can be seen that the output(q) is only dependent on count[0] and it is toggling for every clock cycle.
+
+Optimised circuit :
+
+-- image of the optimised circuit.
+
 
 
 
