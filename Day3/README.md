@@ -33,14 +33,18 @@ We are going to perform optimisation on **opt_check.v** file.
 
 verilog code of the **opt_check.v**
 
--- image of the verilog code will be here
+```
+module opt_check (input a , input b , output y );
+    assign y = a?b:0;
+endmodule
+```
 
 - To get the files that we are going to use for this lab:
 
 ```bash
 ls *opt_check*
 ```
--- image of the lab_files
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_list_of_files_comb.png?raw=true)
 
 - We have to invoke the yosys using the command
 ```bash
@@ -71,49 +75,94 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
 
---image of the optimised circuit i.e and gate
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_comb_optimi_circuit_and.png?raw=true)
 
 Similarly to perform optimisation on **opt_check2.v**,**opt_check3.v**,**opt_check4.v** file. we are going to follow the same steps as above. 
 
 Verilog code for the **opt_check2.v**
 
--- image of the verilog code will be here
+```
+module opt_check2 (input a , input b , output y );
+    assign y = a?1:b;
+endmodule
+```
 
--- image of the output circuit will be here
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_comb_optimi_circuit2.png?raw=true)
 
 
 Verilog code for the **opt_check3.v**
 
--- image of the verilog code will be here
+```
+module opt_check3 (input a , input b ,input c, output y );
+    assign y = a?(c?b:0):0;
+endmodule
+```
 
--- image of the output circuit will be here
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_comb_optimi_circuit3.png?raw=true)
 
 Verilog code for the **opt_check4.v**
 
--- image of the verilog code will be here
+```
+module opt_check3 (input a , input b ,input c, output y );
+    assign y = a?(b?(a & c):c):(!c);
+endmodule
+```
 
 Optimised boolean equation of the circuit
--- image of the optimised boolean circuit
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_comb_optimi_circuit4_circuit_representation.png?raw=true)
 
--- image of the output circuit will be here
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_comb_optimi_circuit4.png?raw=true)
 
 Verilog code for the **multiple_modules_opt.v**
 
--- image of the verilog code will be here
+```
+module sub_module1(input a, input b , oputput y);
+  assign y = a & b;
+endmodule
+
+module sub_module2(input a , input b , oputput y);
+  assign y = a ^ b;
+endmodule
+
+module multiple_module_opt(input a , input b, input c, input d, output y);
+  wire n1,n2,n3;
+  
+  sub_module1 U1 (.a(a), .b(1'b1), .y(n1));
+  sub_module1 U2 (.a(n1), .b(1'b0), .y(n2));
+  sub_module2 U3 (.a(b), .b(d), .y(n3));
+  
+  assign y = c | (b & n1);
+endmodule
+
+```
 
 Optimised boolean equation of the circuit
--- image of the optimised boolean circuit
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_comb_optimi_multiple_modules_circuit_optimisation_representation.png?raw=true)
 
--- image of the output circuit will be here
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_comb_optimi_multiple_modules_circuit_representation.png?raw=true)
 
 Verilog code for the **multiple_modules_opt2.v**
 
--- image of the verilog code will be here
+```
+module sub_module(input a, input b, output y);
+  assign y = a & b;
+endmodule
+
+module multiple_module_opt2(input a , input b, input c, input d, oputput y);
+ wire n1,n2,n3;
+ 
+ sub_module U1(.a(a), .b(1'b0), .y(n1));
+ sub_module U1(.a(b), .b(c), .y(n2));
+ sub_module U1(.a(n2), .b(d), .y(n3));
+ sub_module U1(.a(n3), .b(n1), .y(y));
+ 
+endmodule
+```
 
 Optimised boolean equation of the circuit
--- image of the optimised boolean circuit
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_comb_optimi_multiple_modules_circuit2_optimisation_representation.png?raw=true)
 
--- image of the output circuit will be here
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_comb_optimi_multiple_modules2_circuit_representation.png?raw=true)
 
 
 ## Lab on Sequential logic optimisations
@@ -122,7 +171,7 @@ In this lab we are going to see optimisation of different D- flip flop.
 
 - circuit1 = **dff_const1.v**
 
--- verilog code of the circuit1
+-- ![image](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/dff_const1.png?raw=true)
 
 from the above circuit we can say that whenever the reset is 1 the output of the flip flop is 0 asynchronously. but when the reset is 0 and there is an input at D, then there will be change in the output of the flip flop only at the posedge of the clock.
 
@@ -134,7 +183,7 @@ code of the simulation of the circuit and see the waveform:
 iverilog dff_const1.v tb_dff_const1.verilog
 ```
 
--- image of the gtkwave of the above circuit.
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_circuit1_gtkwave.png?raw=true)
 
 To perform the optimisation on the circuit
 
@@ -167,57 +216,57 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
 
--- image of the output wave will be here.
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_circuit1_optimised_circuit.png?raw=true)
 
 - circuit2 = **dff_const2.v**
 
--- verilog code of the circuit2
+-- ![image](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/dff_const2.png?raw=true)
 
 from the above circuit we can say that even when the reset goes low and there is an input at dff(d = 1), the output will always remain 1.
 
 The output waveform of the code:
 
--- output gtkwave of the code will be here.
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_circuit2_gtkwave.png?raw=true)
 
 The optimised circuit :
 
--- the optimised circuit will be here
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_circuit2_optimised_circuit.png?raw=true)
 
 - circuit3 = **dff_const3.v**
 
--- verilog code of the circuit3
+-- ![image](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/dff_const3.png?raw=true)
 
 The output waveform of the code:
 
--- output gtkwave of the code will be here.
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_circuit3_gtkwave.png?raw=true)
 
 The optimised circuit :
 
--- the optimised circuit will be here
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_circuit3_optimised_circuit.png?raw=true)
 
 - circuit4 = **dff_const4.v**
 
--- verilog code of the circuit4
+-- ![image](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/dff_const4.png?raw=true)
 
 The output waveform of the code:
 
--- output gtkwave of the code will be here.
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_circuit4_gtkwave.png?raw=true)
 
 The optimised circuit :
 
--- the optimised circuit will be here
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_circuit4_optimised_circuit.png?raw=true)
 
 - circuit5 = **dff_const5.v**
 
--- verilog code of the circuit5
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/dff_const5.png?raw=true)
 
 The output waveform of the code:
 
--- output gtkwave of the code will be here.
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_circuit5_gtkwave.png?raw=true)
 
 The optimised circuit :
 
--- the optimised circuit will be here
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_circuit5_optimised_circuit.png?raw=true)
 
 
 
