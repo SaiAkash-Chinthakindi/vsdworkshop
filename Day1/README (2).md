@@ -20,7 +20,7 @@ It is the Setup to apply stimulus to the design the check the design functionali
 
 ## **iverilog** based Simulator Flow
 
-![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day1/images/iverilog_gtkwave_2.png?raw=true)
+![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day1/images/iverilog_gtkwave_1.png?raw=true)
 
 The output of the simulator will be a vcd file(value change dump),and For viewing the vcd file we are going to use gtk wave(which is used for viewing the waveform output).
 ## iverilog and gtkwave
@@ -41,9 +41,7 @@ iverilog good_mux.v tb_good_mux.v
 gtkwave tb_good_mux.vcd
 ```
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day1/images/iverilog_gtkwave_2.png?raw=true)
 
 ## Introduction to yosys and Logic Synthesis
 
@@ -98,28 +96,34 @@ The commands are as follow:
 ```bash 
 yosys
 ```
-
 - now we are going to read the library 
 ```bash
 read_liberty -lib ../lib/sky120_fd_sc_hd__tt_025C_1v80.lib
 ```
+![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day1/images/yosys_1.png?raw=true)
 - read the design 
 ```bash
 read_verilog good_mux.v
 ```
+![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day1/images/yosys_2.png?raw=true)
 - we have to synthesise the module
 ```bash
 synth -top good_mux
 ```
+![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day1/images/yosys_3.png?raw=true)
 - now we have to generate the netlist
 ```bash
 abc -liberty ..lib/sky120_fd_sc_hd__tt_025C_1v80.lib
 ```
+![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day1/images/yosys_4.png?raw=true)
 - To see the logic it has realised enter the comand.
 ```bash
 show
 ```
+![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day1/images/good_mux.png?raw=true)
 - To command to see the Netlist of the verilog file 
 ```bash
 write_verilog -nossr good_mux_netlist.verilog
 ```
+![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day1/images/netlist_good_mux.png?raw=true)
+
