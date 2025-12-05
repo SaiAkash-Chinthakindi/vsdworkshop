@@ -44,48 +44,7 @@ gtkwave tb_good_mux.vcd
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-## iverilog and gtkwave
 
-The steps to load the design in iverilog and viewing the Waveforms in gtkwave.
-
-- Compile the design and testbench
-
-``` bash
-iverilog good_mux.v tb_good_mux.v
-```
-- Run the simulation
-``` bash
-./a.out
-```
-- view the Waveform
-```bash
-gtkwave tb_good_mux.vcd
-```
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-## iverilog and gtkwave
-
-The steps to load the design in iverilog and viewing the Waveforms in gtkwave.
-
-- Compile the design and testbench
-
-``` bash
-iverilog good_mux.v tb_good_mux.v
-```
-- Run the simulation
-``` bash
-./a.out
-```
-- view the Waveform
-```bash
-gtkwave tb_good_mux.vcd
-```
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 ## Introduction to yosys and Logic Synthesis
 
 ### Synthesizer
