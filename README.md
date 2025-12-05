@@ -1,6 +1,6 @@
-# VSD RTL Design Workshop – Summary (Day 1 to Day 4)
+# VSD RTL Design Workshop – Summary (Day 1 to Day 5)
 
-This README provides a detailed summary of the work completed from **Day 1 to Day 4** in the VSD RTL Design and Synthesis Workshop.
+This README provides a detailed summary of the work completed from **Day 1 to Day 5** in the VSD RTL Design and Synthesis Workshop.
 
 ---
 
@@ -88,6 +88,35 @@ This README provides a detailed summary of the work completed from **Day 1 to Da
 
 ---
 
+## 📒 Day 5 – Behavioral Modeling, Case/If Constructs & Latch Avoidance
+
+### **What I Learned**
+- How behavioral Verilog constructs like **if-else**, **case**, and **for loops** translate into hardware.  
+- Difference between:
+  - A **procedural for loop** (used inside always blocks)
+  - A **generate-for loop** (used to create multiple hardware instances)
+- How missing assignments in conditional statements lead to **inferred latches**.
+- How synthesizers interpret priority logic (if-else ladders) vs parallel logic (case statements).
+
+### **Key Concepts**
+- **If / Else Chains**
+  - Priority-based logic  
+  - Must assign all outputs in every branch to avoid latch formation  
+
+- **Case Statements**
+  - More structured and parallel  
+  - Missing a `default` clause → risk of inferring unintended latches  
+  - Useful for state machines and decoders  
+
+### **Tasks Done**
+- Wrote examples of incomplete case and if statements to observe how latches appear in synthesis.  
+- Corrected them by adding proper assignments and default branches.  
+
+
+👉 This day focused on writing **clean, synthesizable Verilog** and avoiding hidden hardware pitfalls.
+
+---
+
 # 🛠 Tools Used
 
 - **Icarus Verilog (iverilog)** – For compiling and simulating RTL  
@@ -97,3 +126,4 @@ This README provides a detailed summary of the work completed from **Day 1 to Da
 - **Linux Shell** – For running commands and managing files  
 
 ---
+
