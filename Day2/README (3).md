@@ -19,7 +19,7 @@ sky130_fd_sc_hd__tt_025C_1v80.libs
 
    - The libraries can be slow, fast and typical libraries.
 
--- image of the library description should be here.
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/lib_description.png?raw=true)
 
 - For a Silicon design to work there are three main important factors to be considered.  
 
@@ -35,17 +35,17 @@ sky130_fd_sc_hd__tt_025C_1v80.libs
 
 The library file tells about the Technology being used for building the cells that is "CMOS".It tells about the delay model, time unit, voltage unit, leakage power_unit,current_unit,resistance_unit,capacitive load_unit and the **operating conditions**.
 
--- image of the libray_file goes here
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_libray_file.png?raw=true)
 
 ## What is the .lib file going to contain?
 
 It contains all the types of Standard cells that are available.with each cell showing different features of the cell like the leakage_power() values for different possible combinations of the inputs.
 
---image of the single cell showing the differnt power values
+--![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_cell_lekage.png?raw=true)
 
 The below images shows different types of Cells 
 
---image of the different types od cells
+--![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_different_cells.png?raw=true)
 
 Example: If we consider AND gate
 
@@ -53,7 +53,7 @@ Example: If we consider AND gate
 
 since there are two inputs total 4 combinations are possible.
 
---image of different flavours of the same gate
+--![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_and2_0.png?raw=true)
 
 from the above we can see that as we are going from and2_0 to and 2_4 the area is increasing which indicates that the and2_4 cell is having wider transistors and will be faster in processing which lead to increase of more power consumption.
 
@@ -72,14 +72,14 @@ For example: if we consider multiple_modules.v file which contains two sub_modul
 
 
 - verilog code for multiple_modules.v 
--- image for the verilog code
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_verilog_code_multiple_modules.png?raw=true)
 
 - these two sub_modules are synthesised seperately.
--- image of the Hierarchical synthesis
+--![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_hierarchical_synth.png?raw=true)
 
 - netlist representing the Hierarchy of sub_module1 and sub_module2
 
--- image of the netlist of the hier
+--![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_hier.png?raw=true)
 
 ## Flat synthesis
 
@@ -91,9 +91,9 @@ yosys> flatten
 ```
 - netlist representing the multiple_modules after flatten
 
---image of the flatten netlist
+--![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_flatten.png?raw=true)
 
--- image of the flatten synthesis
+--![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_image_of%20the%20flatten.png?raw=true)
 
 
 
