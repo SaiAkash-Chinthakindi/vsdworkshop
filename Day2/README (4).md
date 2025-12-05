@@ -10,7 +10,7 @@
 sky130_fd_sc_hd__tt_025C_1v80.libs
 ```
 - The below images show first 50 lines of the library file
--- [image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_sky130_lib.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_sky130_lib.png?raw=true)
 
 -- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_sky130_lib1.png?raw=true)
 
@@ -40,7 +40,7 @@ The library file tells about the Technology being used for building the cells th
 
 It contains all the types of Standard cells that are available.with each cell showing different features of the cell like the leakage_power() values for different possible combinations of the inputs.
 
---![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_cell_lekage.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_cell_lekage.png?raw=true)
 
 The below images shows different types of Cells 
 
@@ -102,7 +102,7 @@ Flops are generally used for storing 1-bit of data.Flops can be Edge-triggered o
 
 If there are many combinational circuits connected together.There might be a possibility that the outputs may not be stable which can result in a glitch and in order to avoid glitches and synchronize the whole design we use flops that updates the output only on the clock.
 
---![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_flops.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_flops.png?raw=true)
 
 the above images shows the connections of the combinational circuit with D- Flip Flop which is also known a data Flip Flop.
 
@@ -130,7 +130,7 @@ endmodule
 
 Output graph:
 
---![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_asyncres_graph.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_asyncres_graph.png?raw=true)
 
 synthesis:
 
@@ -139,7 +139,7 @@ the code to access the design for the D-Flip flop from the standard cell library
 dfflibmap -liberty ../lib/sky130_fd_sc_hd___tt_025C_1v80.lib
 ```
 
---![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_asyncres.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_asyncres.png?raw=true)
 
 - Flop with syncronous reset
 
@@ -160,11 +160,11 @@ endmodule
 ```
 output graph:
 
---[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_syncres_graph.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_syncres_graph.png?raw=true)
 
 synthesis:
 
---[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_syncres.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_syncres.png?raw=true)
 
 - Flop with asynchronous set
 
@@ -186,11 +186,11 @@ endmodule
 
 output graph: 
 
---[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_async_set_graph.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_async_set_graph.png?raw=true)
 
 synthesis:
 
---[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_asynset.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_asynset.png?raw=true)
 
 - Flop with Asynchronous reset and synchronous reset
 
@@ -216,11 +216,11 @@ endmodule
 ```
 
 output:
--- [image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_asyn_sync_rst_graph.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_asyn_sync_rst_graph.png?raw=true)
 
 synthesis:
 
--- [image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_async_sync_rst.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_async_sync_rst.png?raw=true)
 
 ### Lab on Special Optimizations
 
@@ -234,7 +234,7 @@ module mult2(input [2:0] a, output [3:0] y);
 endmodule
 ```
 
--- [image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_optim_mult2.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_optim_mult2.png?raw=true)
 
 
 2) If we multiply a 3-bit number by 9 and the output is 6 bits long, the result will have the same 3-bit pattern repeated in both the upper 3 bits and the lower 3 bits. This is because multiplying by 9 is like multiplying by (8 + 1), so the number appears once shifted and once in its original place.
@@ -259,11 +259,11 @@ module mult8 (input [2:0] a, output [5:0] y);
 endmodule
 ```
 
---[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_mult8.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_mult8.png?raw=true)
 
 netlist produced after performing the synthesis operation
 
---[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_mult_8_netlist_image.png?raw=true)
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_mult_8_netlist_image.png?raw=true)
 
 
 
