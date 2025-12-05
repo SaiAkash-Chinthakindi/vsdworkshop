@@ -102,7 +102,7 @@ Flops are generally used for storing 1-bit of data.Flops can be Edge-triggered o
 
 If there are many combinational circuits connected together.There might be a possibility that the outputs may not be stable which can result in a glitch and in order to avoid glitches and synchronize the whole design we use flops that updates the output only on the clock.
 
---images of the comb and the flops
+--![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_flops.png?raw=true)
 
 the above images shows the connections of the combinational circuit with D- Flip Flop which is also known a data Flip Flop.
 
@@ -116,12 +116,21 @@ In this type of flop the output of the flip flop will be set to 0 irrespective o
 
 code:
 ```
-code should be written here 
+module dff_asyncres (input clk , input async_reset , input d , output reg q );
+
+always @ (posedge clk , posedge async_reset )
+begin 
+    if(async_reset)
+        q <= 1'b0;
+    else
+        q <= d;
+end
+endmodule
 ```
 
 Output graph:
 
---image of the output graph will be here
+--![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_asyncres_graph.png?raw=true)
 
 synthesis:
 
@@ -130,7 +139,7 @@ the code to access the design for the D-Flip flop from the standard cell library
 dfflibmap -liberty ../lib/sky130_fd_sc_hd___tt_025C_1v80.lib
 ```
 
--- image of the synthesis graph goes here
+--![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_asyncres.png?raw=true)
 
 - Flop with syncronous reset
 
@@ -138,15 +147,24 @@ In this type of flop the output will change to 0 only at the posedge or negedge 
 
 code:
 ```bash
-code should be writtel here
+module dff_syncres (input clk , input async_reset ,input sync_reset, input d , output reg q );
+
+always @ (posedge clk )
+begin 
+    if(sync_reset)
+        q <= 1'b0;
+    else
+        q <= d;
+end
+endmodule
 ```
 output graph:
 
---image of the output graph will be here
+--[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_syncres_graph.png?raw=true)
 
 synthesis:
 
--- image of the synthesis graph goes here
+--[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_syncres.png?raw=true)
 
 - Flop with asynchronous set
 
@@ -154,16 +172,25 @@ In this type of flop irrespective of the clock the output will be set to 1.
 
 code: 
 ```
-code will go here
+module dff_async_set (input clk , input async_set , input d , output reg q );
+
+always @ (posedge clk, posedge async_set )
+begin 
+    if(async_set)
+        q <= 1'b1;
+    else
+        q <= d;
+end
+endmodule
 ```
 
 output graph: 
 
---image og the output graph will be here.
+--[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_async_set_graph.png?raw=true)
 
 synthesis:
 
--- image of the synthesis grapth goes here
+--[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_asynset.png?raw=true)
 
 - Flop with Asynchronous reset and synchronous reset
 
@@ -174,15 +201,26 @@ in other cases the output will follow the input.
 
 code:
 ```
-the code will be here
+module dff_asyncres_syncres (input clk , input async_reset ,input sync_reset input d , output reg q );
+
+always @ (posedge clk, posedge async_reset )
+begin 
+    if(async_reset)
+        q <= 1'b0;
+    else if (sync_reset)
+        q <= 1'b0;
+    else
+        q <= d;
+end
+endmodule
 ```
 
 output:
--- output graph will be here
+-- [image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_asyn_sync_rst_graph.png?raw=true)
 
 synthesis:
 
--- image of the synthesis graph goes here
+-- [image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_synth_dff_async_sync_rst.png?raw=true)
 
 ### Lab on Special Optimizations
 
@@ -190,9 +228,13 @@ synthesis:
 
 Example:
 
--- code for the mult_2
+```
+module mult2(input [2:0] a, output [3:0] y);
+   assign y = a * 2;
+endmodule
+```
 
--- image for the mult_2
+-- [image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_optim_mult2.png?raw=true)
 
 
 2) If we multiply a 3-bit number by 9 and the output is 6 bits long, the result will have the same 3-bit pattern repeated in both the upper 3 bits and the lower 3 bits. This is because multiplying by 9 is like multiplying by (8 + 1), so the number appears once shifted and once in its original place.
@@ -211,13 +253,17 @@ the 4 will be shifted to left by 3 units = (100000) and will be added with 4
 the result will be = (100000 + 100)
                    = 100100
                   
--- code for the mult_9
+```
+module mult8 (input [2:0] a, output [5:0] y);
+   assign y = a * 9;
+endmodule
+```
 
--- image of the circuit of mult_9
+--[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_dff_mult8.png?raw=true)
 
 netlist produced after performing the synthesis operation
 
--- image of the mult_8_netlist
+--[image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day3_mult_8_netlist_image.png?raw=true)
 
 
 
