@@ -5,17 +5,17 @@
 
 The files that are going to be use for this lab are: 
 
--- the image of the files fo the incomplete if
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day5/images/day6_files_for%20Optimisation_in_synthesis.png?raw=true)
 
 The codes corresponding to the Lab:
 
--- the image of the code of the incomplete if 
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day5/images/day6_files_for%20Optimisation_in_synthesis_code.png?raw=true) 
 
 1) **incomp_if.v**
 
 The code:
 
--- image of the code of incomp_if 
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day5/images/incomp_if.png?raw=true)
 
 We are going to perform the RTL simulation on the verilog file
 
@@ -30,9 +30,10 @@ To view the waveform
 ```bash
 gtkwave tb_incomp_if.vcd
 ```
+![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day5/images/day6_gtkwave_incomp_if_rtl_graph.png?raw=true)
 After performing the synthesis operation on the verilog file the obtained circuit is:
 
--- image of the circuit after performing the synthesis
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day5/images/day6_graph_after_synthesis_incomp_if.png?raw=true)
 
 From the circuit we can say that then the Enable(i0) is high the output will follow the i1 input but as soon as the i0 goes low the output will have the value of i1 before the Enable goes low and it will remain same for the entire low duration. and the tool is also infering a Latch.
 
@@ -40,7 +41,7 @@ From the circuit we can say that then the Enable(i0) is high the output will fol
 
 The code:
 
--- image of the code of incomp_if2 
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day5/images/day6_incomp_if2_code.png?raw=true) 
 
 We are going to perform the RTL simulation on the verilog file
 
@@ -55,9 +56,10 @@ To view the waveform
 ```bash
 gtkwave tb_incomp_if2.vcd
 ```
+![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day5/images/day6_gtkwave_incomp_if2_rtl_graph.png?raw=true)
 After performing the synthesis operation on the verilog file the obtained circuit is:
 
--- image of the circuit after performing the synthesis
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day5/images/day6_graph_after_synthesis_incomp_if2.png?raw=true)
 
 
 
