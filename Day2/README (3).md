@@ -10,9 +10,10 @@
 sky130_fd_sc_hd__tt_025C_1v80.libs
 ```
 - The below images show first 50 lines of the library file
--- image 1 should be placed here
+  
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_sky130_lib.png?raw=true)
 
--- image 2 should be place here for the library
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day2/images/day2_sky130_lib1.png?raw=true)
 
 - The first line tells the name of the library i.e sky130 nanometer library and the "tt" stands for typical and 025C is the Temperature.
 
