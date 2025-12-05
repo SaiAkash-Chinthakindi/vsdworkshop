@@ -276,19 +276,19 @@ For a given module we can have one or more primary outputs and if we have some l
 
 Example: if we consider the circuit **counter_opt.v**
 
--- verilog code for the counter_opt.v 
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/counter_opt.png?raw=true) 
 
--- circuit of the counter 
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_counter_opt_unused_circuit.png?raw=true) 
 
 output waveform of the circuit produced.
 
--- waveform of the circuit produced
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_counter_opt_unused_waveform.png?raw=true)
 
 from the above waveform it can be seen that the output(q) is only dependent on count[0] and it is toggling for every clock cycle.
 
 Optimised circuit :
 
--- image of the optimised circuit.
+-- ![image alt](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/main/Day3/images/day4_sequ_counter_opt_unused_circuit_optimised.png?raw=true)
 
 
 
