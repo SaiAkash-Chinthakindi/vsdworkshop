@@ -20,7 +20,7 @@ It is the Setup to apply stimulus to the design the check the design functionali
 
 ## **iverilog** based Simulator Flow
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![image alt]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://github.com/SaiAkash-Chinthakindi/vsdworkshop/blob/6ddc4bb57eb05ba18ff31bf95021fedfc184147e/Day1/images/iverilog_gtkwave_2.png))
 
 The output of the simulator will be a vcd file(value change dump),and For viewing the vcd file we are going to use gtk wave(which is used for viewing the waveform output).
 ## iverilog and gtkwave
